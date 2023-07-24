@@ -57,3 +57,10 @@
 - admin/zwykły użytkownik
 - potwierdzenie wypożyczenia auta
 - aktywacja konta przy użyciu emaila
+  
+- 
+- MVC - Model View Controller
+  View        | View
+  Controller  | Controller
+  Model       | Service
+  | Repository
