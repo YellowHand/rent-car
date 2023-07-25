@@ -1,8 +1,7 @@
 package pl.yellow.rentallo.domain;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Transient;
 import lombok.Data;
 
 import java.util.List;
@@ -11,5 +10,6 @@ import java.util.List;
 @Embeddable
 public class Pictures {
     String mainPictureUrl;
+    @ElementCollection
     List<String> picturesUrls;
 }
