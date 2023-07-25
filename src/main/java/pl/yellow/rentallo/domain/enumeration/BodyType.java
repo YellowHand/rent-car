@@ -1,5 +1,10 @@
 package pl.yellow.rentallo.domain.enumeration;
 
 public enum BodyType {
-    // TODO
+    HATCHBACK,
+    SEDAN,
+    COMBI,
+    SUV,
+    PICKUP,
+    VAN;
 }

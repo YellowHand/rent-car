@@ -1,5 +1,8 @@
 package pl.yellow.rentallo.domain.enumeration;
 
 public enum EngineType {
-    // TODO
+    ELECTRIC_MOTOR,
+    V8,
+    V10,
+    V12;
 }
