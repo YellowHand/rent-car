@@ -17,6 +17,7 @@ public record CarDto(
         String bodySerialNumber,
         int pricePerDayInPolishGrosz,
         boolean available,
-        int rangeInKm
+        int rangeInKm,
+        PicturesDto pictures
 ) {
 }
