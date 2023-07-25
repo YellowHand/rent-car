@@ -22,9 +22,10 @@ public class CarRestController {
     }
 
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> allCars() {
+    public List<Car> allCars() {
         log.info("all cars request");
-        List<Car> cars = carService.getAllCars();
-        return ResponseEntity.status(HttpStatus.OK).body(cars);
+        return carService.getAllCars();
     }
+
+
 }
