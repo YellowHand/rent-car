@@ -2,12 +2,18 @@ package pl.yellow.rentallo.mapper;
 
 import org.springframework.stereotype.Component;
 import pl.yellow.rentallo.domain.Car;
-import pl.yellow.rentallo.domain.Pictures;
 import pl.yellow.rentallo.dto.CarDto;
-import pl.yellow.rentallo.dto.PicturesDto;
+
 
 @Component
-public class CarMapper implements Mapper<Car, CarDto>{
+public class CarMapper implements Mapper<Car, CarDto> {
+
+    private final PicturesMapper picturesMapper;
+
+    public CarMapper(PicturesMapper picturesMapper) {
+        this.picturesMapper = picturesMapper;
+    }
+
     @Override
     public CarDto fromEntityToDto(Car entity) {
         return CarDto.builder()
@@ -23,7 +29,7 @@ public class CarMapper implements Mapper<Car, CarDto>{
                 .pricePerDayInPolishGrosz(entity.getPricePerDayInPolishGrosz())
                 .available(entity.isAvailable())
                 .rangeInKm(entity.getRangeInKm())
-                .pictures(new PicturesDto(entity.getPictures().getMainPictureUrl(), entity.getPictures().getPicturesUrls()))
+                .pictures(picturesMapper.fromEntityToDto(entity.getPictures()))
                 .build();
     }
 
@@ -43,7 +49,7 @@ public class CarMapper implements Mapper<Car, CarDto>{
                 .pricePerDayInPolishGrosz(dto.pricePerDayInPolishGrosz())
                 .available(dto.available())
                 .rangeInKm(dto.rangeInKm())
-                .pictures(new Pictures(dto.pictures().mainPictureUrl(), dto.pictures().picturesUrls()))
+                .pictures(picturesMapper.fromDtoToEntity(dto.pictures()))
                 .build();
     }
 }

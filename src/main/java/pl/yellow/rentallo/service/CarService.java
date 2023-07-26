@@ -4,6 +4,7 @@ package pl.yellow.rentallo.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.yellow.rentallo.domain.Car;
+import pl.yellow.rentallo.exception.WrongCarIdException;
 import pl.yellow.rentallo.repository.CarRepository;
 
 import java.util.List;
@@ -25,4 +26,8 @@ public class CarService {
         return cars;
     }
 
+    public Car findCarById(Long carId) {
+        return carRepository.findById(carId)
+                .orElseThrow(() -> new WrongCarIdException("No car with id: " + carId));
+    }
 }

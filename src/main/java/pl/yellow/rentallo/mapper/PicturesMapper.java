@@ -1,8 +1,10 @@
 package pl.yellow.rentallo.mapper;
 
+import org.springframework.stereotype.Component;
 import pl.yellow.rentallo.domain.Pictures;
 import pl.yellow.rentallo.dto.PicturesDto;
 
+@Component
 public class PicturesMapper implements Mapper<Pictures, PicturesDto> {
 
     @Override
