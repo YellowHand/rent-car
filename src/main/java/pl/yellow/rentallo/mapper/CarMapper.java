@@ -2,6 +2,7 @@ package pl.yellow.rentallo.mapper;
 
 import org.springframework.stereotype.Component;
 import pl.yellow.rentallo.domain.Car;
+import pl.yellow.rentallo.domain.Pictures;
 import pl.yellow.rentallo.dto.CarDto;
 import pl.yellow.rentallo.dto.PicturesDto;
 
@@ -28,6 +29,21 @@ public class CarMapper implements Mapper<Car, CarDto>{
 
     @Override
     public Car fromDtoToEntity(CarDto dto) {
-        return null;
+        return Car.builder()
+                .id(dto.id())
+                .brand(dto.brand())
+                .model(dto.model())
+                .fuelType(dto.fuelType())
+                .engineType(dto.engineType())
+                .bodyType(dto.bodyType())
+                .numberOfSeats(dto.numberOfSeats())
+                .trunkCapacityInLitres(dto.trunkCapacityInLitres())
+                .combustionPer100Km(dto.combustionPer100Km())
+                .bodySerialNumber(dto.bodySerialNumber())
+                .pricePerDayInPolishGrosz(dto.pricePerDayInPolishGrosz())
+                .available(dto.available())
+                .rangeInKm(dto.rangeInKm())
+                .pictures(new Pictures(dto.pictures().mainPictureUrl(), dto.pictures().picturesUrls()))
+                .build();
     }
 }
