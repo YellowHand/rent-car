@@ -28,6 +28,10 @@ public class CarService {
 
     public Car findCarById(Long carId) {
         return carRepository.findById(carId)
+                .map(car -> {
+                    log.info("found car: [{}]", car);
+                    return car;
+                })
                 .orElseThrow(() -> new WrongCarIdException("No car with id: " + carId));
     }
 }
