@@ -27,7 +27,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("let's create some cars");
         Car mazda = Car.builder()
-                .model("V")
+                .model("VW")
                 .brand("mazda")
                 .fuelType(FuelType.GAS)
                 .engineType(EngineType.V8)

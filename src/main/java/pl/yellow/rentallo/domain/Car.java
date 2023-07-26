@@ -29,7 +29,7 @@ public class Car {
     String model;
     @Column(nullable = false)
     @NotNull
-    @Size(max = 2)
+    @Size(min = 2)
     String brand;
     @Enumerated(EnumType.STRING)
     FuelType fuelType;
