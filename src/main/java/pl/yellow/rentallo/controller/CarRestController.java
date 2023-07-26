@@ -1,12 +1,12 @@
 package pl.yellow.rentallo.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.yellow.rentallo.domain.Car;
+import pl.yellow.rentallo.dto.CarDto;
+import pl.yellow.rentallo.mapper.CarMapper;
 import pl.yellow.rentallo.service.CarService;
 
 import java.util.List;
@@ -16,15 +16,20 @@ import java.util.List;
 @RequestMapping("/api")
 public class CarRestController {
     private final CarService carService;
+    private final CarMapper carMapper;
 
-    public CarRestController(CarService carService) {
+    public CarRestController(CarService carService, CarMapper carMapper) {
         this.carService = carService;
+        this.carMapper = carMapper;
     }
 
     @GetMapping("/cars")
-    public List<Car> allCars() {
+    public List<CarDto> allCars() {
         log.info("all cars request");
-        return carService.getAllCars();
+        return carService.getAllCars()
+                .stream()
+                .map(car -> carMapper.fromEntityToDto(car))
+                .toList();
     }
 
 
