@@ -2,6 +2,8 @@ package pl.yellow.rentallo.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,9 +21,15 @@ import pl.yellow.rentallo.domain.enumeration.FuelType;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     Long id;
-
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 2)
     String model;
+    @Column(nullable = false)
+    @NotNull
+    @Size(max = 2)
     String brand;
     @Enumerated(EnumType.STRING)
     FuelType fuelType;
@@ -32,9 +40,12 @@ public class Car {
     int numberOfSeats;
     int trunkCapacityInLitres;
     String  combustionPer100Km;
+    @Column(unique = true)
     String bodySerialNumber;
     int pricePerDayInPolishGrosz;
     boolean available;
     int rangeInKm;
+    @Column(nullable = false)
+    @NotNull
     Pictures pictures;
 }
