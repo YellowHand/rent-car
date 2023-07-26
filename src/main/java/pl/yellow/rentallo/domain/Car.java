@@ -20,6 +20,7 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     String model;
     String brand;
     @Enumerated(EnumType.STRING)
