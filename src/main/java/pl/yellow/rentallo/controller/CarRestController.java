@@ -1,10 +1,8 @@
 package pl.yellow.rentallo.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.yellow.rentallo.dto.CarDto;
 import pl.yellow.rentallo.mapper.CarMapper;
 import pl.yellow.rentallo.service.CarService;
@@ -36,5 +34,10 @@ public class CarRestController {
     public CarDto getCarById(@PathVariable("id") Long carId) {
         log.info("trying to find car with id: [{}]", carId);
         return carMapper.fromEntityToDto(carService.findCarById(carId));
+    }
+
+    @PostMapping("/cars")
+    public void addCar(@RequestBody @Valid CarDto toSave) {
+        log.info("Adding new car: [{}]", toSave);
     }
 }
