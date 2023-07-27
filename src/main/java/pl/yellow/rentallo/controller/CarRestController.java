@@ -8,6 +8,7 @@ import pl.yellow.rentallo.dto.CarDto;
 import pl.yellow.rentallo.mapper.CarMapper;
 import pl.yellow.rentallo.service.CarService;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -38,9 +39,11 @@ public class CarRestController {
     }
 
     @PostMapping("/cars")
-    public void addCar(@RequestBody @Valid CarDto toSave) {
+    public ResponseEntity<Void> addCar(@RequestBody @Valid CarDto toSave) {
         log.info("Adding new car: [{}]", toSave);
 
         var result = carService.addCar(carMapper.fromDtoToEntity(toSave));
+        URI uri = URI.create("/api/cars/" + result.getId());
+        return ResponseEntity.created(uri).build();
     }
 }
