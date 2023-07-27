@@ -56,4 +56,11 @@ public class CarRestController {
         carService.deleteCarById(carId);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/cars/{id}")
+    public CarDto replaceCar(@RequestBody @Valid CarDto toReplace,@PathVariable("id") Long carId) {
+        log.info("trying to replace car by id: [{}] with content [{}]", carId, toReplace);
+        var entityToReplace = carMapper.fromDtoToEntity(toReplace);
+        return carMapper.fromEntityToDto(carService.replaceCar(carId, entityToReplace));
+    }
 }

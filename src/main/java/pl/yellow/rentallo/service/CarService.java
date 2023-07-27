@@ -9,6 +9,7 @@ import pl.yellow.rentallo.exception.WrongCarIdException;
 import pl.yellow.rentallo.repository.CarRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -51,5 +52,17 @@ public class CarService {
         } else {
             throw new WrongCarIdException("Wrong id: " + carId);
         }
+    }
+
+    public Car replaceCar(Long carId, Car entityToReplace) {
+        log.info("replacing car with id [{}] with content [{}]", carId, entityToReplace);
+        boolean exist = carRepository.existsById(carId);
+        if (!exist) {
+            throw new WrongCarIdException("Wrong car id: " + carId);
+        }
+        if (!carId.equals(entityToReplace.getId())) {
+            throw new WrongCarIdException("Ids mismatch: [{%d}] vs [{%d}]".formatted(carId, entityToReplace.getId()));
+        }
+        return carRepository.save(entityToReplace);
     }
 }
