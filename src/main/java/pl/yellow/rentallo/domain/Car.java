@@ -25,7 +25,7 @@ public class Car {
     Long id;
     @Column(nullable = false)
     @NotNull
-    @Size(min = 2)
+    @Size(min = 1)
     String model;
     @Column(nullable = false)
     @NotNull
