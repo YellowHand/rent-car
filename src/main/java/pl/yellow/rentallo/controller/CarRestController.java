@@ -63,4 +63,9 @@ public class CarRestController {
         var entityToReplace = carMapper.fromDtoToEntity(toReplace);
         return carMapper.fromEntityToDto(carService.replaceCar(carId, entityToReplace));
     }
+
+    @PatchMapping("/cars/{id}")
+    public CarDto updateCar(@RequestBody @Valid CarDto toReplace,@PathVariable("id") Long carId) {
+        return null;
+    }
 }
