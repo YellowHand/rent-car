@@ -2,6 +2,7 @@ package pl.yellow.rentallo.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.yellow.rentallo.dto.CarDto;
 import pl.yellow.rentallo.mapper.CarMapper;
@@ -39,5 +40,7 @@ public class CarRestController {
     @PostMapping("/cars")
     public void addCar(@RequestBody @Valid CarDto toSave) {
         log.info("Adding new car: [{}]", toSave);
+
+        var result = carService.addCar(carMapper.fromDtoToEntity(toSave));
     }
 }
