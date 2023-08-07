@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
+@Data
 @Entity
 @Builder
 @AllArgsConstructor
@@ -23,8 +23,8 @@ public class CarBooking {
     Car bookedCar;
     @ManyToOne
     Client client;
-    LocalDate startDay;
-    LocalDate endDay;
+    LocalDate startDate;
+    LocalDate endDate;
     int totalPricePerDayInPolishGrosz;
     @ManyToOne
     Address startLocation;
