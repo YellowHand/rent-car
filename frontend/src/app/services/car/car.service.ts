@@ -7,4 +7,7 @@ import {HttpClient} from "@angular/common/http";
 export class CarService {
 
   constructor(private httpClient: HttpClient) { }
+  getCars() {
+
+  }
 }
