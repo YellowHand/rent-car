@@ -42,6 +42,23 @@ public class DataInitializer implements CommandLineRunner {
                 .pictures(new Pictures("img.freepik.com/premium-zdjecie/mazda-rx7-na-drodze_917278-30.jpg?w=1060",
                         List.of()))
                 .build();
-        carRepository.save(mazda);
+
+        Car mazda2 = Car.builder()
+                .model("VW")
+                .brand("mazda")
+                .fuelType(FuelType.GAS)
+                .engineType(EngineType.V8)
+                .bodyType(BodyType.HATCHBACK)
+                .numberOfSeats(5)
+                .trunkCapacityInLitres(250)
+                .combustionPer100Km("5.0/100")
+                .bodySerialNumber("123456")
+                .pricePerDayInPolishGrosz(28000)
+                .available(true)
+                .rangeInKm(800)
+                .pictures(new Pictures("img.freepik.com/premium-zdjecie/mazda-rx7-na-drodze_917278-30.jpg?w=1060",
+                        List.of()))
+                .build();
+        carRepository.save(mazda2);
     }
 }
