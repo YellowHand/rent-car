@@ -48,7 +48,7 @@ public class DataInitializer implements CommandLineRunner {
                 .brand("mazda")
                 .fuelType(FuelType.GAS)
                 .engineType(EngineType.V8)
-                .bodyType(BodyType.HATCHBACK)
+                .bodyType(BodyType.VAN)
                 .numberOfSeats(5)
                 .trunkCapacityInLitres(250)
                 .combustionPer100Km("5.0/100")

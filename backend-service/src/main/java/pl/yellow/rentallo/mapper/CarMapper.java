@@ -22,6 +22,7 @@ public class CarMapper implements Mapper<Car, CarDto> {
                 .brand(entity.getBrand())
                 .fuelType(entity.getFuelType())
                 .engineType(entity.getEngineType())
+                .bodyType(entity.getBodyType())
                 .numberOfSeats(entity.getNumberOfSeats())
                 .trunkCapacityInLitres(entity.getTrunkCapacityInLitres())
                 .combustionPer100Km(entity.getCombustionPer100Km())
