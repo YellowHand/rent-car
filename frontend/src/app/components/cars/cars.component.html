@@ -1,18 +1,18 @@
 <div *ngFor="let car of cars">
   <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar class=" example-header-image"></div>
     <mat-card-title>Model: {{car.model}}</mat-card-title>
     <mat-card-subtitle>Brand: {{car.brand}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="{{car.pictures.mainPictureUrl}}" alt="Image">
   <mat-card-content>
       Car description:
-      <ol>
+    <ol>
     <li>Engine type: {{car.engineType}}</li>
     <li>Body type: {{car.bodyType}}</li>
     <li>Price per day: {{car.pricePerDayInPolishGrosz}}</li>
-  </ol>
+    </ol>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>Rent</button>
