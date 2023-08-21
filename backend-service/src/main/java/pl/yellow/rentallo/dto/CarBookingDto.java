@@ -1,6 +1,5 @@
 package pl.yellow.rentallo.dto;
 
-import pl.yellow.rentallo.domain.Address;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

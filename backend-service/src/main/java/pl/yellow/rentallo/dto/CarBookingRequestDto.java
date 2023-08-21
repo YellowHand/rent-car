@@ -1,7 +1,6 @@
 package pl.yellow.rentallo.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 
 public record CarBookingRequestDto(
