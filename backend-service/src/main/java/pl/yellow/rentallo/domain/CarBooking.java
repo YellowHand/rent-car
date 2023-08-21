@@ -25,7 +25,7 @@ public class CarBooking {
     Client client;
     LocalDate startDate;
     LocalDate endDate;
-    int totalPricePerDayInPolishGrosz;
+    long totalPricePerDayInPolishGrosz;
     @ManyToOne
     Address startLocation;
     @ManyToOne
