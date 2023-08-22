@@ -12,6 +12,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ClientsComponent } from './components/clients/clients.component';
 import { AboutComponent } from './components/about/about.component';
+import { RentsHistoryComponent } from './components/rents-history/rents-history.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AboutComponent } from './components/about/about.component';
     TopBarComponent,
     NavigationBarComponent,
     ClientsComponent,
-    AboutComponent
+    AboutComponent,
+    RentsHistoryComponent
   ],
   imports: [
     BrowserModule,
