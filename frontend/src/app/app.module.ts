@@ -13,6 +13,10 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ClientsComponent } from './components/clients/clients.component';
 import { AboutComponent } from './components/about/about.component';
 import { RentsHistoryComponent } from './components/rents-history/rents-history.component';
+import {RouterModule} from "@angular/router";
+import { HomeComponent } from './componentsr/home/home.component';
+import {aboutUrl, carsUrl, clientsUrl, homePageUrl, notFoundPageUrl, rentsHistoryUrl} from "./models/urls";
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { RentsHistoryComponent } from './components/rents-history/rents-history.
     NavigationBarComponent,
     ClientsComponent,
     AboutComponent,
-    RentsHistoryComponent
+    RentsHistoryComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,15 @@ import { RentsHistoryComponent } from './components/rents-history/rents-history.
     MatCardModule,
     MatButtonModule,
     MatButtonToggleModule,
-  ],
+    RouterModule.forRoot([
+      {path: homePageUrl, component: HomeComponent},
+      {path: rentsHistoryUrl, component: RentsHistoryComponent},
+      {path: carsUrl, component: CarsComponent},
+      {path: clientsUrl, component: ClientsComponent},
+      {path: aboutUrl, component: AboutComponent},
+      {path: notFoundPageUrl, component: NotFoundComponent}
+    ])
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
