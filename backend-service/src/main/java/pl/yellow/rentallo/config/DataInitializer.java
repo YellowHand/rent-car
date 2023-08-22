@@ -5,11 +5,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import pl.yellow.rentallo.domain.Car;
+import pl.yellow.rentallo.domain.Client;
 import pl.yellow.rentallo.domain.Pictures;
 import pl.yellow.rentallo.domain.enumeration.BodyType;
 import pl.yellow.rentallo.domain.enumeration.EngineType;
 import pl.yellow.rentallo.domain.enumeration.FuelType;
 import pl.yellow.rentallo.repository.CarRepository;
+import pl.yellow.rentallo.repository.ClientRepository;
 
 import java.util.List;
 
@@ -18,9 +20,11 @@ import java.util.List;
 @Profile("develop")
 public class DataInitializer implements CommandLineRunner {
     private final CarRepository carRepository;
+    private final ClientRepository clientRepository;
 
-    public DataInitializer(CarRepository carRepository) {
+    public DataInitializer(CarRepository carRepository, ClientRepository clientRepository) {
         this.carRepository = carRepository;
+        this.clientRepository = clientRepository;
     }
 
     @Override
