@@ -10,13 +10,15 @@ import {MatButtonModule} from "@angular/material/button";
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ClientsComponent } from './components/clients/clients.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsComponent,
     TopBarComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ClientsComponent
   ],
   imports: [
     BrowserModule,
