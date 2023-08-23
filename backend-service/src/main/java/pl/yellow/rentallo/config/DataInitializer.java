@@ -102,5 +102,17 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
 
         clientRepository.save(client1);
+
+        Client client2 = Client.builder()
+                .name("Jan")
+                .surname("Kowalski")
+                .pesel("1445567894")
+                .email("email@gmail.com")
+                .dateOfBirth(LocalDate.of(1994,6,12))
+                .phone("6787834")
+                .address(address1)
+                .build();
+
+        clientRepository.save(client2);
     }
 }
