@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.yellow.rentallo.domain.Client;
 import pl.yellow.rentallo.dto.ClientDto;
 import pl.yellow.rentallo.mapper.ClientMapper;
 import pl.yellow.rentallo.service.ClientService;
