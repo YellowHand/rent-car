@@ -9,7 +9,6 @@ import {ClientService} from "../../services/client/client.service";
 })
 export class ClientsComponent implements OnInit {
 
-  clients: Array<Client> = []
 
   constructor(private clientService: ClientService) {
   }
@@ -19,8 +18,6 @@ ngOnInit(): void {
           .getClients()
           .subscribe(clientsFromServer => {
             console.log("Data from server" + JSON.stringify(clientsFromServer, null, 2))
-            this.clients = clientsFromServer
           })
     }
-
 }
