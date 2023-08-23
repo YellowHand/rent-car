@@ -17,9 +17,9 @@ export class ClientsComponent implements OnInit {
 ngOnInit(): void {
         this.clientService
           .getClients()
-          .subscribe(clientFromServer => {
-            console.log("Data from server" + JSON.stringify(clientFromServer, null, 2))
-            this.clients = clientFromServer
+          .subscribe(clientsFromServer => {
+            console.log("Data from server" + JSON.stringify(clientsFromServer, null, 2))
+            this.clients = clientsFromServer
           })
     }
 
