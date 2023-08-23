@@ -12,7 +12,7 @@ import {Client} from "../../models/client";
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'username', 'pesel', 'email', 'dateOfBrith',
+  displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'email', 'dateOfBirth',
     'phone', 'addressDto', 'accountCreated'];
   clients: Array<Client> = [];
   dataSource: MatTableDataSource<Client> = new MatTableDataSource<Client>(this.clients);
@@ -26,6 +26,7 @@ export class ClientsComponent implements OnInit, AfterViewInit {
     this.clientService.getClients()
       .subscribe(clients => {
         console.log(`Clients from server: ${JSON.stringify(clients, null, 2)}`)
+        this.dataSource.data = clients;
       })
   }
   ngAfterViewInit(): void {
