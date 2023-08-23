@@ -96,7 +96,7 @@ public class DataInitializer implements CommandLineRunner {
                 .surname("Kowalski")
                 .pesel("12345567894")
                 .email("email@gmail.com")
-                .dateOfBirth(LocalDate.of(1997,05,12))
+                .dateOfBirth(LocalDate.of(1997,5,12))
                 .phone("57847834")
                 .address(address1)
                 .build();
