@@ -29,6 +29,7 @@ export class CarsComponent implements OnInit {
       picturesUrls: new FormControl(Array<string>)
     })
   })
+  value: any;
   get model() {
     return this.carForm.controls.model
   }
@@ -97,4 +98,8 @@ export class CarsComponent implements OnInit {
       })
   }
 
+  sendCar() {
+    console.log("data submitted")
+    this.value = this.carForm.value
+  }
 }

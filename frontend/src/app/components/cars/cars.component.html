@@ -1,47 +1,51 @@
 <div>
+  <p>Form value: {{value | json}}</p>
 <h2>Create new car</h2>
-  <form [formGroup]=carForm>
+  <form [formGroup]="carForm" (ngSubmit)="sendCar()">
     <label for="model">Model:</label>
-    <input id="model" [formControl]="model" type="text">
+    <input id="model" [formControl]="model" type="text"><br/>
 
     <label for="brand">Brand:</label>
-    <input id="brand" [formControl]="brand" type="text">
+    <input id="brand" [formControl]="brand" type="text"><br/>
 
     <label for="fuelType">Fuel Type:</label>
-    <input id="fuelType" [formControl]="fuelType" type="text">
+    <input id="fuelType" [formControl]="fuelType" type="text"><br/>
 
     <label for="engineType">Engine Type:</label>
-    <input id="engineType" [formControl]="engineType" type="text">
+    <input id="engineType" [formControl]="engineType" type="text"><br/>
 
     <label for="bodyType">Body Type:</label>
-    <input id="bodyType" [formControl]="bodyType" type="text">
+    <input id="bodyType" [formControl]="bodyType" type="text"><br/>
 
     <label for="numberOfSeats">Number of Seats:</label>
-    <input id="numberOfSeats" [formControl]="numberOfSeats" type="number">
+    <input id="numberOfSeats" [formControl]="numberOfSeats" type="number"><br/>
 
     <label for="trunkCapacityInLitres">Trunk Capacity (litres):</label>
-    <input id="trunkCapacityInLitres" [formControl]="trunkCapacityInLitres" type="number">
+    <input id="trunkCapacityInLitres" [formControl]="trunkCapacityInLitres" type="number"><br/>
 
     <label for="combustionPer100Km">Combustion per 100km:</label>
-    <input id="combustionPer100Km" [formControl]="combustionPer100Km" type="text">
+    <input id="combustionPer100Km" [formControl]="combustionPer100Km" type="text"><br/>
 
     <label for="bodySerialNumber">Body Serial Number:</label>
-    <input id="bodySerialNumber" [formControl]="bodySerialNumber" type="text">
+    <input id="bodySerialNumber" [formControl]="bodySerialNumber" type="text"><br/>
 
     <label for="pricePerDayInPolishGrosz">Price per Day (Polish Grosz):</label>
-    <input id="pricePerDayInPolishGrosz" [formControl]="pricePerDayInPolishGrosz" type="number">
+    <input id="pricePerDayInPolishGrosz" [formControl]="pricePerDayInPolishGrosz" type="number"><br/>
 
     <label for="available">Available:</label>
-    <input id="available" [formControl]="available" type="checkbox">
+    <input id="available" [formControl]="available" type="checkbox"><br/>
 
     <label for="rangeInKm">Range (km):</label>
-    <input id="rangeInKm" [formControl]="rangeInKm" type="number">
+    <input id="rangeInKm" [formControl]="rangeInKm" type="number"><br/>
 
     <label for="mainPictureUrl">Main picture url:</label>
-    <input id="mainPictureUrl" [formControl]="mainPictureUrl" type="text">
+    <input id="mainPictureUrl" [formControl]="mainPictureUrl" type="text"><br/>
 
     <label for="picturesUrls">Picture url list:</label>
-    <input id="picturesUrls" [formControl]="picturesUrls" type="text">
+    <input id="picturesUrls" [formControl]="picturesUrls" type="text"><br/>
+
+    <button type="submit" mat-raised-button>Create</button>
+    <button type="reset" mat-raised-button>Reset</button>
   </form>
 </div>
 <div>
