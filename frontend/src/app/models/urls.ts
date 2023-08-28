@@ -1,6 +1,7 @@
 // external links
 const serverUrl = "http://localhost:8080"
 export const allCarsUrl = `${serverUrl}/api/cars`
+export const createCarUrl = `${serverUrl}/api/cars`
 export const allClientsUrl = `${serverUrl}/api/clients`
 
 // internal links

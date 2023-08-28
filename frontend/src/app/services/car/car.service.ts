@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {allCarsUrl} from "../../models/urls";
+import {allCarsUrl, createCarUrl} from "../../models/urls";
 import {Car} from "../../models/car.";
 import {Observable} from "rxjs";
 
@@ -13,5 +13,10 @@ export class CarService {
   getCars():Observable<Array<Car>> {
     return this.httpClient
       .get<Array<Car>>(allCarsUrl)
+  }
+
+  sendCar(car: Car): Observable<Car> {
+    return this.httpClient
+      .post<Car>(createCarUrl, car)
   }
 }

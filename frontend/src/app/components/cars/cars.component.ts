@@ -12,6 +12,7 @@ export class CarsComponent implements OnInit {
 
   cars: Array<Car> = []
   carForm = new FormGroup({
+    id: new FormControl(null),
     model: new FormControl(''),
     brand: new FormControl(''),
     fuelType: new FormControl(''),
@@ -85,6 +86,10 @@ export class CarsComponent implements OnInit {
   get picturesUrls() {
     return this.carForm.controls.pictures.controls.picturesUrls;
   }
+
+  get id() {
+    return this.carForm.controls.id;
+  }
   constructor(private carService: CarService) {
 
   }
@@ -101,5 +106,6 @@ export class CarsComponent implements OnInit {
   sendCar() {
     console.log("data submitted")
     this.value = this.carForm.value
+    this.carService.sendCar(this.carForm.value as Car);
   }
 }

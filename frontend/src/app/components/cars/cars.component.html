@@ -2,6 +2,8 @@
   <p>Form value: {{value | json}}</p>
 <h2>Create new car</h2>
   <form [formGroup]="carForm" (ngSubmit)="sendCar()">
+    <input id="id" [formControl]="id" type="hidden"><br/>
+
     <label for="model">Model:</label>
     <input id="model" [formControl]="model" type="text"><br/>
 
