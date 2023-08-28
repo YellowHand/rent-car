@@ -76,6 +76,14 @@ export class CarsComponent implements OnInit {
   get rangeInKm() {
     return this.carForm.controls.rangeInKm;
   }
+
+  get mainPictureUrl() {
+    return this.carForm.controls.pictures.controls.mainPictureUrl;
+  }
+
+  get picturesUrls() {
+    return this.carForm.controls.pictures.controls.picturesUrls;
+  }
   constructor(private carService: CarService) {
 
   }
