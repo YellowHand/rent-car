@@ -28,7 +28,7 @@ import {authGuard} from "./services/login/login.service";
 
 const routingTable: Routes = [
   {path: homePageUrl, component: HomeComponent},
-  {path: rentsHistoryUrl, component: RentsHistoryComponent},
+  {path: rentsHistoryUrl, component: RentsHistoryComponent, canActivate: [authGuard]},
   {path: carsUrl, component: CarsComponent},
   {path: clientsUrl, component: ClientsComponent, canActivate: [authGuard]},
   {path: aboutUrl, component: AboutComponent},
