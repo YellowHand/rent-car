@@ -1,53 +1,73 @@
 <div>
-  <p>Form value: {{value | json}}</p>
-<h2>Create new car</h2>
-  <form [formGroup]="carForm" (ngSubmit)="sendCar()">
-
-    <label for="model">Model:</label>
-    <input id="model" [formControl]="model" type="text"><br/>
-
-    <label for="brand">Brand:</label>
-    <input id="brand" [formControl]="brand" type="text"><br/>
-
-    <label for="fuelType">Fuel Type:</label>
-    <input id="fuelType" [formControl]="fuelType" type="text"><br/>
-
-    <label for="engineType">Engine Type:</label>
-    <input id="engineType" [formControl]="engineType" type="text"><br/>
-
-    <label for="bodyType">Body Type:</label>
-    <input id="bodyType" [formControl]="bodyType" type="text"><br/>
-
-    <label for="numberOfSeats">Number of Seats:</label>
-    <input id="numberOfSeats" [formControl]="numberOfSeats" type="number"><br/>
-
-    <label for="trunkCapacityInLitres">Trunk Capacity (litres):</label>
-    <input id="trunkCapacityInLitres" [formControl]="trunkCapacityInLitres" type="number"><br/>
-
-    <label for="combustionPer100Km">Combustion per 100km:</label>
-    <input id="combustionPer100Km" [formControl]="combustionPer100Km" type="text"><br/>
-
-    <label for="bodySerialNumber">Body Serial Number:</label>
-    <input id="bodySerialNumber" [formControl]="bodySerialNumber" type="text"><br/>
-
-    <label for="pricePerDayInPolishGrosz">Price per Day (Polish Grosz):</label>
-    <input id="pricePerDayInPolishGrosz" [formControl]="pricePerDayInPolishGrosz" type="number"><br/>
-
-    <label for="available">Available:</label>
-    <input id="available" [formControl]="available" type="checkbox"><br/>
-
-    <label for="rangeInKm">Range (km):</label>
-    <input id="rangeInKm" [formControl]="rangeInKm" type="number"><br/>
-
-    <label for="mainPictureUrl">Main picture url:</label>
-    <input id="mainPictureUrl" [formControl]="mainPictureUrl" type="text"><br/>
-
-    <label for="picturesUrls">Picture url list:</label>
-    <input id="picturesUrls" [formControl]="picturesUrls" type="text"><br/>
-
-    <button #submitbutton type="submit" mat-raised-button>Create</button>
-    <button type="reset" mat-raised-button>Reset</button>
-  </form>
+  <div>
+    <p>Form value: {{ value | json }}</p>
+    <h2>Create new car</h2>
+    <form [formGroup]="carForm" (ngSubmit)="sendCar()">
+      <label for="model">Model:</label>
+      <input id="model" [formControl]="model" type="text"><br/>
+      <div class="mat-error"
+           *ngIf="model.invalid && (model.touched || model.dirty)">
+        <div *ngIf="model.errors?.['required']">Model is required</div>
+        <!--        FIXME-->
+        <div *ngIf="model.errors?.['minlength']">Min length is 1</div>
+      </div>
+      <label for="brand">Brand</label>
+      <input  id="brand" type="text" [formControl]="brand"><br/>
+      <div class="mat-error"
+           *ngIf="brand.invalid && (brand.touched || brand.dirty)">
+        <div *ngIf="brand.errors?.['required']">Brand is required</div>
+        <div *ngIf="brand.errors?.['minlength']">Min length is 2</div>
+      </div>
+      <label for="fuelType">Fuel type</label>
+      <input id="fuelType" type="text" [formControl]="fuelType"><br/>
+      <div class="mat-error"
+           *ngIf="fuelType.invalid && (fuelType.touched || fuelType.dirty)">
+        <div *ngIf="fuelType.errors?.['required']">Fuel type is required</div>
+      </div>
+      <label for="engineType">Engine type</label>
+      <input id="engineType" type="text" [formControl]="engineType"><br/>
+      <div class="mat-error"
+           *ngIf="engineType.invalid && (engineType.touched || engineType.dirty)">
+        <div *ngIf="engineType.errors?.['required']">Engine type is required</div>
+      </div>
+      <label for="bodyType">Body type</label>
+      <input id="bodyType" type="text" [formControl]="bodyType"><br/>
+      <div class="mat-error"
+           *ngIf="bodyType.invalid && (bodyType.touched || bodyType.dirty)">
+        <div *ngIf="bodyType.errors?.['required']">Body type is required</div>
+      </div>
+      <label for="numberOfSeats">Number of seats</label>
+      <input id="numberOfSeats" type="number" [formControl]="numberOfSeats"><br/>
+      <div class="mat-error"
+           *ngIf="numberOfSeats.invalid && (numberOfSeats.touched || numberOfSeats.dirty)">
+        <div *ngIf="numberOfSeats.errors?.['required']">Field is required</div>
+        <div *ngIf="numberOfSeats.errors?.['minlength']">Min length is 2</div>
+      </div>
+      <label for="trunkCapacityInLitres">Trunk capacity in litres</label>
+      <input id="trunkCapacityInLitres" type="number" [formControl]="trunkCapacityInLitres"><br/>
+      <label for="combustionPer100Km">Combustion per 100 km</label>
+      <input id="combustionPer100Km" type="number" [formControl]="combustionPer100Km"><br/>
+      <label for="bodySerialNumber">Body serial number</label>
+      <input id="bodySerialNumber" type="text" [formControl]="bodySerialNumber"><br/>
+      <div class="mat-error"
+           *ngIf="bodySerialNumber.invalid && (bodySerialNumber.touched || bodySerialNumber.dirty)">
+        <div *ngIf="bodySerialNumber.errors?.['required']">Body serial number is required</div>
+      </div>
+      <label for="pricePerDayInPolishGrosz">Price per day in polish grosz</label>
+      <input id="pricePerDayInPolishGrosz" type="number" [formControl]="pricePerDayInPolishGrosz"><br/>
+      <div class="mat-error"
+           *ngIf="pricePerDayInPolishGrosz.invalid && (pricePerDayInPolishGrosz.touched || pricePerDayInPolishGrosz.dirty)">
+        <div *ngIf="pricePerDayInPolishGrosz.errors?.['required']">Price field is required</div>
+      </div>
+      <label for="available">Is available</label>
+      <input id="available" type="text" [formControl]="available"><br/>
+      <label for="rangeInKm">Range in [km]</label>
+      <input id="rangeInKm" type="number" [formControl]="rangeInKm"><br/>
+      <!--      TODO-->
+      <label for="rangeInKm">Pictures</label>
+      <button #submitButton [disabled]="!carForm.valid" type="submit" mat-raised-button>Create</button>
+      <button type="reset" mat-raised-button>Reset</button>
+    </form>
 </div>
 <div>
   <div *ngFor="let car of cars">

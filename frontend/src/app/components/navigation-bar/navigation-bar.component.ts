@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {aboutUrl, carsUrl, clientsUrl, homePageUrl, rentsHistoryUrl} from "../../models/urls";
+import {LoginService} from "../../services/login/login.service";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -13,4 +14,7 @@ export class NavigationBarComponent {
   protected readonly carsUrl = carsUrl;
   protected readonly clientsUrl = clientsUrl;
   protected readonly aboutUrl = aboutUrl;
+
+  constructor(public loginService: LoginService) {
+  }
 }

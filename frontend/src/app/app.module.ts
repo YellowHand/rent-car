@@ -23,13 +23,14 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {ReactiveFormsModule} from "@angular/forms";
+import {authGuard} from "./services/login/login.service";
 
 
 const routingTable: Routes = [
   {path: homePageUrl, component: HomeComponent},
   {path: rentsHistoryUrl, component: RentsHistoryComponent},
   {path: carsUrl, component: CarsComponent},
-  {path: clientsUrl, component: ClientsComponent},
+  {path: clientsUrl, component: ClientsComponent, canActivate: [authGuard]},
   {path: aboutUrl, component: AboutComponent},
   {path: notFoundPageUrl, component: NotFoundComponent}
 ]
