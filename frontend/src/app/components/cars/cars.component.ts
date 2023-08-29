@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CarService} from "../../services/car/car.service";
 import {Car} from "../../models/car.";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
 import {delay} from "rxjs";
 
@@ -15,16 +15,16 @@ export class CarsComponent implements OnInit {
   @ViewChild('submitbutton') submitButton!: MatButton
   cars: Array<Car> = []
   carForm = new FormGroup({
-    model: new FormControl(''),
-    brand: new FormControl(''),
-    fuelType: new FormControl(''),
-    engineType: new FormControl(''),
-    bodyType: new FormControl(''),
-    numberOfSeats: new FormControl(4),
+    model: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    brand: new FormControl('',[Validators.required, Validators.minLength(2)]),
+    fuelType: new FormControl('', Validators.required),
+    engineType: new FormControl('', Validators.required),
+    bodyType: new FormControl('', Validators.required),
+    numberOfSeats: new FormControl(4, [Validators.required, Validators.min(2)]),
     trunkCapacityInLitres: new FormControl(200),
     combustionPer100Km: new FormControl(''),
-    bodySerialNumber: new FormControl(''),
-    pricePerDayInPolishGrosz: new FormControl(0),
+    bodySerialNumber: new FormControl('', [Validators.required]),
+    pricePerDayInPolishGrosz: new FormControl(0, [Validators.required, Validators.min(1)]),
     available: new FormControl(true),
     rangeInKm: new FormControl(300),
     pictures: new FormGroup({
